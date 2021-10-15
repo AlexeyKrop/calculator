@@ -25,3 +25,15 @@ numbs.forEach((item) => {
   element.innerHTML = item;
   calc.appendChild(element);
 });
+let buttons = document.querySelectorAll(".btn");
+const buttonClick = (event) => {
+  const target = event.target;
+  if (target.innerHTML === "c") {
+    input.value = "0";
+  } else if (target.innerHTML === "=") {
+    input.value = "=";
+  }
+};
+buttons.forEach((button) => {
+  button.addEventListener("click", buttonClick);
+});
