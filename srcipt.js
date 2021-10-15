@@ -22,14 +22,22 @@ let calc = document.getElementById("calc"),
 numbs.forEach((item) => {
   let element = document.createElement("div");
   element.className = "btn";
+  element.setAttribute("value", item);
   element.innerHTML = item;
   calc.appendChild(element);
 });
 let buttons = document.querySelectorAll(".btn");
 const buttonClick = (event) => {
   const target = event.target;
+  console.log(target.innerHTML);
+  if (target.innerHTML === "+") {
+    input.value = target.innerHTML + target.innerHTML;
+  }
   input.value += target.innerHTML;
 };
 buttons.forEach((button) => {
   button.addEventListener("click", buttonClick);
 });
+const getPlus = (a, b) => {
+  return a + b;
+};
