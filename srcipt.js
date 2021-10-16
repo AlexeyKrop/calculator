@@ -41,6 +41,6 @@ calc.addEventListener("click", (e) => {
     }
     input.value = eval(input.value);
   } else {
-    input.value += target.innerHTML.replace(/[^0-9]/ + /-${0-1}/g, "");
+    input.value += target.innerHTML.replace(/[^0-9\(\)\+\- ]/, "");
   }
 });
