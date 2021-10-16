@@ -27,17 +27,20 @@ numbs.forEach((item) => {
   calc.appendChild(element);
 });
 let buttons = document.querySelectorAll(".btn");
-const buttonClick = (event) => {
-  const target = event.target;
-  console.log(target.innerHTML);
-  if (target.innerHTML === "+") {
-    input.value = target.innerHTML + target.innerHTML;
+
+calc.addEventListener("click", (e) => {
+  const target = e.target;
+  if (!target.classList.contains("btn")) {
+    return;
   }
-  input.value += target.innerHTML;
-};
-buttons.forEach((button) => {
-  button.addEventListener("click", buttonClick);
+  if (target.innerHTML === "c") {
+    input.value = "";
+  } else if (target.innerHTML === "=") {
+    if (input.value.search(/[^0-9*/+-.]/i) != -1) {
+      return;
+    }
+    input.value = eval(input.value);
+  } else {
+    input.value += target.innerHTML.replace(/[^0-9]/ + /-${0-1}/g, "");
+  }
 });
-const getPlus = (a, b) => {
-  return a + b;
-};
