@@ -33,14 +33,14 @@ calc.addEventListener("click", (e) => {
   if (!target.classList.contains("btn")) {
     return;
   }
+  // if (input.value.search(/.{2}/) === -1) {
+  //   return;
+  // }
   if (target.innerHTML === "c") {
     input.value = "";
   } else if (target.innerHTML === "=") {
-    if (input.value.search(/[^0-9*/+-.]/i) != -1) {
-      return;
-    }
     input.value = eval(input.value);
   } else {
-    input.value += target.innerHTML.replace(/[^0-9\(\)\+\- ]/, "");
+    input.value += target.innerHTML;
   }
 });
