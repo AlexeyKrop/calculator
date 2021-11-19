@@ -33,9 +33,6 @@ calc.addEventListener("click", (e) => {
   if (!target.classList.contains("btn")) {
     return;
   }
-  // if (input.value.search(/.{2}/) === -1) {
-  //   return;
-  // }
   if (target.innerHTML === "c") {
     input.value = "";
   } else if (target.innerHTML === "=") {
